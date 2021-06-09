@@ -17,7 +17,7 @@ module.exports = function autoStun(mod) {
 	let lockSkills = false;
 	let attackIdBase = 0xFEFEFFEE;
 
-	const unlockDelay = 1000;
+	const unlockDelay = 600;
 	const startedSkills = new Set();
 	const castedSkills = new Set();
 	const pressedSkills = new Set();
