@@ -1,0 +1,36 @@
+{
+    "files": {
+        "README.md": "008f53e1e97acc92c492f567498c274af6f3340a5de488dbe18cb97d7ea45950",
+        "config/classes.js": "19fac90cb85b26383f16adfabec63842ecbb408bbb6a7a114acb0af4f37b5efd",
+        "config/zones.js": "3185cd0977ed2d9cce036bc9590ee3ee5c5f20008cf09e40ad4ab7047b939cc2",
+        "index.js": "dd522f9b333fb7a2b431ce7d1e0e6e56f972aa7bfa2c690d3d01a4cab73636d3",
+        "module.json": "93d5cbc1ad4c42313d28d84721837b64f68af01df84f4d821f0c102025d5b927",
+        "settings_migrator.js": "6bbb39ee04fce048a3373852208e8216d3bd5d464ee40e9822d2e6ca176e76b7"
+    },
+    "defs": {
+        "C_CANCEL_SKILL": 3,
+        "C_NOTIFY_LOCATION_IN_ACTION": 4,
+        "C_NOTIFY_LOCATION_IN_DASH": 4,
+        "C_NOTIMELINE_SKILL": 3,
+        "C_PLAYER_LOCATION": 5,
+        "C_PRESS_SKILL": 4,
+        "C_START_COMBO_INSTANT_SKILL": 6,
+        "C_START_INSTANCE_SKILL": 7,
+        "C_START_INSTANCE_SKILL_EX": 5,
+        "C_START_SKILL": 7,
+        "C_START_TARGETED_SKILL": 7,
+        "S_ACTION_END": 5,
+        "S_ACTION_STAGE": 9,
+        "S_BOSS_GAGE_INFO": 3,
+        "S_CANNOT_START_SKILL": 4,
+        "S_CUSTOM_STYLE_SYSTEM_MESSAGE": 1,
+        "S_DECREASE_COOLTIME_SKILL": 3,
+        "S_DESPAWN_NPC": 3,
+        "S_DUNGEON_EVENT_MESSAGE": 2,
+        "S_NPC_LOCATION": 3,
+        "S_PLAYER_STAT_UPDATE": 16,
+        "S_QUEST_BALLOON": 1,
+        "S_SPAWN_ME": 3,
+        "S_START_COOLTIME_SKILL": 3
+    }
+}

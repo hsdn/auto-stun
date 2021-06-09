@@ -1,0 +1,14 @@
+{
+    "name": "auto-stun",
+    "author": "HSDN",
+    "description": "Automatic casting of stun skills on stun mechanics in dungeons.",
+    "options": {
+        "niceName": "Auto Stun",
+        "settingsVersion": 1,
+        "settingsFile": "config/settings.json",
+        "settingsMigrator": "settings_migrator.js"
+    },
+    "supportUrl": "https://github.com/hsdn/auto-stun/issues",
+    "servers": ["https://raw.githubusercontent.com/hsdn/auto-stun/master/"],
+    "disableAutoUpdate": false
+}
