@@ -284,6 +284,10 @@ module.exports = function autoStun(mod) {
 		Object.values(classesConfig[playerJob].skills).forEach(skill => {
 			if (!skill.id || (skill.profile && profile && skill.profile !== profile)) return;
 
+			if (isSkillCooldown(skill.id)) {
+				return;
+			}
+
 			if (skill.distance && !isNearBoss(skill.distance)) {
 				return;
 			}
@@ -321,6 +325,8 @@ module.exports = function autoStun(mod) {
 			}
 
 			if (!skill.type || ["cast", "instance", "targeted"].includes(skill.type)) {
+				lockSkills = true;
+
 				startSkill(
 					skill.id,
 					skill.delay || 0,
@@ -329,6 +335,8 @@ module.exports = function autoStun(mod) {
 					skill.count || 0
 				);
 			} else if (skill.type === "press" && skill.duration) {
+				lockSkills = true;
+
 				pressSkill(
 					skill.id,
 					skill.delay || 0,
@@ -353,10 +361,7 @@ module.exports = function autoStun(mod) {
 	}
 
 	function startSkill(skillId, delay, type = null, retry = null, count = null) {
-		if (isSkillCooldown(skillId)) return;
-
 		startedSkills.add(skillId);
-		lockSkills = true;
 
 		cancelSkills();
 
@@ -420,8 +425,6 @@ module.exports = function autoStun(mod) {
 
 	function pressSkill(skillId, delay, duration, press = true) {
 		if (press) {
-			lockSkills = true;
-
 			cancelSkills(false);
 		}
 
@@ -480,8 +483,6 @@ module.exports = function autoStun(mod) {
 					"type": 10,
 					"id": attackId
 				}), duration / playerLastSpeed);
-
-				mod.setTimeout(() => lockSkills = false, unlockDelay);
 			}
 		}, delay / playerLastSpeed);
 	}
