@@ -86,7 +86,7 @@ module.exports = function autoStun(mod) {
 		playerJob = (mod.game.me.templateId - 10101) % 100;
 	});
 
-	mod.hook("S_PLAYER_STAT_UPDATE", 16, { "order": Infinity }, event => {
+	mod.hook("S_PLAYER_STAT_UPDATE", 17, { "order": Infinity }, event => {
 		if (!loaded) return;
 
 		playerAvgSpeed = Math.max((event.attackSpeed + event.attackSpeedBonus) / (playerJob >= 8 ? 100 : event.attackSpeed), 0);

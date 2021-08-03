@@ -3,7 +3,7 @@
         "README.md": "008f53e1e97acc92c492f567498c274af6f3340a5de488dbe18cb97d7ea45950",
         "config/classes.js": "19fac90cb85b26383f16adfabec63842ecbb408bbb6a7a114acb0af4f37b5efd",
         "config/zones.js": "3185cd0977ed2d9cce036bc9590ee3ee5c5f20008cf09e40ad4ab7047b939cc2",
-        "index.js": "8e3e52854bd009468a2d44c75e4b314bce49ceb95357caeb561443945a194aff",
+        "index.js": "c46c261415c29a7185721eacc0b38caeefec823c9e01ef8582aa0477faf3ac0b",
         "module.json": "93d5cbc1ad4c42313d28d84721837b64f68af01df84f4d821f0c102025d5b927",
         "settings_migrator.js": "6bbb39ee04fce048a3373852208e8216d3bd5d464ee40e9822d2e6ca176e76b7"
     },
@@ -28,7 +28,7 @@
         "S_DESPAWN_NPC": 3,
         "S_DUNGEON_EVENT_MESSAGE": 2,
         "S_NPC_LOCATION": 3,
-        "S_PLAYER_STAT_UPDATE": 16,
+        "S_PLAYER_STAT_UPDATE": 17,
         "S_QUEST_BALLOON": 1,
         "S_SPAWN_ME": 3,
         "S_START_COOLTIME_SKILL": 3
