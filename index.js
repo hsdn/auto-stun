@@ -111,7 +111,7 @@ module.exports = function autoStun(mod) {
 		if (mod.settings.enabled && loaded && lockSkills) return false;
 	});
 
-	mod.hook("C_PRESS_SKILL", 4, { "order": -Infinity }, event => {
+	mod.hook("C_PRESS_SKILL", mod.majorPatchVersion >= 114 ? 5 : 4, { "order": -Infinity }, event => {
 		if (!mod.settings.enabled || !loaded) return;
 
 		if (!event.press) {
@@ -133,7 +133,7 @@ module.exports = function autoStun(mod) {
 		}
 	});
 
-	mod.hook("S_START_COOLTIME_SKILL", 3, { "order": Infinity }, event => {
+	mod.hook("S_START_COOLTIME_SKILL", mod.majorPatchVersion >= 114 ? 4 : 3, { "order": Infinity }, event => {
 		if (!mod.settings.enabled || !loaded) return;
 
 		cooldowns.set(event.skill.id, {
@@ -437,7 +437,7 @@ module.exports = function autoStun(mod) {
 				sendSkillMessage(skillId, "Release", "#00FF00");
 			}
 
-			mod.send("C_PRESS_SKILL", 4, {
+			mod.send("C_PRESS_SKILL", mod.majorPatchVersion >= 114 ? 5 : 4, {
 				"skill": {
 					"reserved": 0,
 					"npc": false,
@@ -515,7 +515,7 @@ module.exports = function autoStun(mod) {
 	function cancelSkills(cancelPressed = true) {
 		if (cancelPressed) {
 			pressedSkills.forEach(skillId => {
-				mod.send("C_PRESS_SKILL", 4, {
+				mod.send("C_PRESS_SKILL", mod.majorPatchVersion >= 114 ? 5 : 4, {
 					"skill": {
 						"reserved": 0,
 						"npc": false,
