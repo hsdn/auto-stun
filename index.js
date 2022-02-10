@@ -1,5 +1,7 @@
 "use strict";
 
+const Vec3 = require("tera-vec3");
+
 module.exports = function autoStun(mod) {
 	let zonesConfig = reloadModule("./config/zones.js");
 	let classesConfig = reloadModule("./config/classes.js");
@@ -104,7 +106,7 @@ module.exports = function autoStun(mod) {
 	mod.hook("C_START_SKILL", 7, { "order": -Infinity }, cStartSkill);
 	mod.hook("C_START_TARGETED_SKILL", 7, { "order": -Infinity }, cStartSkill);
 	mod.hook("C_START_COMBO_INSTANT_SKILL", 6, { "order": -Infinity }, cStartSkill);
-	mod.hook("C_START_INSTANCE_SKILL", 7, { "order": -Infinity }, cStartSkill);
+	mod.hook("C_START_INSTANCE_SKILL", 8, { "order": -Infinity }, cStartSkill);
 	mod.hook("C_START_INSTANCE_SKILL_EX", 5, { "order": -Infinity }, cStartSkill);
 
 	mod.hook("C_NOTIMELINE_SKILL", 3, { "order": -Infinity }, () => {
@@ -381,7 +383,7 @@ module.exports = function autoStun(mod) {
 
 				switch (type) {
 					case "instance":
-						mod.send("C_START_INSTANCE_SKILL", 7, {
+						mod.send("C_START_INSTANCE_SKILL", 8, {
 							"skill": skill,
 							"loc": playerLocation,
 							"w": playerDirection,
@@ -437,7 +439,7 @@ module.exports = function autoStun(mod) {
 				sendSkillMessage(skillId, "Release", "#00FF00");
 			}
 
-			mod.send("C_PRESS_SKILL", mod.majorPatchVersion >= 114 ? 5 : 4, {
+			mod.send("C_PRESS_SKILL", 5, {
 				"skill": {
 					"reserved": 0,
 					"npc": false,
@@ -447,7 +449,10 @@ module.exports = function autoStun(mod) {
 				},
 				"press": press,
 				"loc": playerLocation,
-				"w": playerDirection
+				"w": playerDirection,
+				"unkn1": new Vec3(0, 0, 0),
+				"unkn2": true,
+				"unkn3": false
 			});
 
 			if (press) {
@@ -515,7 +520,7 @@ module.exports = function autoStun(mod) {
 	function cancelSkills(cancelPressed = true) {
 		if (cancelPressed) {
 			pressedSkills.forEach(skillId => {
-				mod.send("C_PRESS_SKILL", mod.majorPatchVersion >= 114 ? 5 : 4, {
+				mod.send("C_PRESS_SKILL", 5, {
 					"skill": {
 						"reserved": 0,
 						"npc": false,
@@ -525,7 +530,10 @@ module.exports = function autoStun(mod) {
 					},
 					"press": false,
 					"loc": playerLocation,
-					"w": playerDirection
+					"w": playerDirection,
+					"unkn1": new Vec3(0, 0, 0),
+					"unkn2": true,
+					"unkn3": false
 				});
 			});
 		}
