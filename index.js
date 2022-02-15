@@ -388,6 +388,8 @@ module.exports = function autoStun(mod) {
 							"loc": playerLocation,
 							"w": playerDirection,
 							"continue": false,
+							"unkn1": new Vec3(0, 0, 0),
+							"unkn2": true,
 							"targets": [{
 								"arrowId": 0,
 								"gameId": bossGameId,
