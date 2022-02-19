@@ -158,7 +158,7 @@ module.exports = function autoStun(mod) {
 		castedSkills.delete(event.skill.id);
 	});
 
-	mod.hook("S_DECREASE_COOLTIME_SKILL", 3, { "order": Infinity }, event => {
+	mod.hook("S_DECREASE_COOLTIME_SKILL", mod.majorPatchVersion >= 114 ? 4 : 3, { "order": Infinity }, event => {
 		if (!mod.settings.enabled || !loaded) return;
 
 		cooldowns.set(event.skill.id, {
