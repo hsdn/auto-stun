@@ -10,12 +10,11 @@ module.exports = {
 			{ "type": "cast", "id": 50300, "delay": 60, "distance": 250, "retry": 300, "count": 5, "disableIfAbn": 100103 }, // Battle Cry
 
 			// Reaping Slash is second
-			{ "type": "press", "id": 320100, "delay": 0, "duration": 1, "distance": 250, "enableIfCd": 50300, "disableIfCd": 310800, "disableIfAbn": 100103 }, // Cross Parry
-			{ "type": "cast", "id": 310800, "delay": 100, "distance": 250, "retry": 200, "count": 5, "enableIfCd": 50300, "disableIfAbn": 100103 }, // Reaping Slash
+			{ "type": "cast", "id": 310800, "delay": 100, "distance": 250, "retry": 200, "count": 10 }, // Reaping Slash
 
 			// Backstab is third
 			{ "type": "press", "id": 320100, "delay": 0, "duration": 1, "distance": 550, "enableIfCd": [50300, 310800], "disableIfCd": 220200, "disableIfAbn": 100103 }, // Cross Parry
-			{ "type": "targeted", "id": 220200, "delay": 200, "distance": 550, "retry": 200, "count": 5, "enableIfCd": [50300, 310800], "disableIfAbn": 100103 }, // Backstab
+			{ "type": "targeted", "id": 220200, "delay": 200, "distance": 550, "retry": 200, "count": 10, "enableIfCd": 310800 }, // Backstab
 		]
 	},
 
@@ -36,6 +35,7 @@ module.exports = {
 	10: {
 		"skills": [
 			{ "type": "cast", "id": 161101, "delay": 400, "distance": 134, "retry": 25, "count": 2 }, // Flip Kick
+			{ "type": "cast", "id": 130901, "delay": 100, "distance": 400, "retry": 200, "count": 5, "enableIfCd": 161101 }, // Provoke
 		]
 	}
 };

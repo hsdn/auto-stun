@@ -37,4 +37,30 @@ module.exports = {
 			}
 		}
 	},
+
+	// Timescape (hard)
+	9056: {
+		"bosses": {
+			1001: {
+				"questBalloons": {
+					456020: {"profile": "default", "delay": 0},
+				},
+			},
+			1000: {
+				"dungeonEvents": {
+					456001: { "profile": "default", "delay": 0 },
+				}
+			},
+			1002: {
+				"skills": {
+					3113: { "profile": "default", "delay": 4000 },
+				}
+			},
+			1003: {
+				"questBalloons": {
+					456017: { "profile": "default", "delay": 0 },
+				}
+			},
+		}
+	},
 };

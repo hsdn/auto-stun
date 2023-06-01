@@ -1,9 +1,9 @@
 {
     "files": {
-        "README.md": "008f53e1e97acc92c492f567498c274af6f3340a5de488dbe18cb97d7ea45950",
-        "config/classes.js": "19fac90cb85b26383f16adfabec63842ecbb408bbb6a7a114acb0af4f37b5efd",
-        "config/zones.js": "3185cd0977ed2d9cce036bc9590ee3ee5c5f20008cf09e40ad4ab7047b939cc2",
-        "index.js": "d8cd224db5b6ff2533da9941659add8f11589c7e6cae62a5542a1198ea99188e",
+        "README.md": "24641914785116f882e1070d4fc3debf86ed86e2c50943637abc6b27c568ee76",
+        "config/classes.js": "42f7e557a08b182f1733db214e76ab4eb4c3a3238dae9d99552bc2ce0537c0be",
+        "config/zones.js": "760fef03c7de9b10f6cf30db7c128943403b39c14dae92ab7d8d5d3af97ae63a",
+        "index.js": "de8fd2f3031d72cefe76c8078b29815fd02799d8383204b1038dce16f8163082",
         "module.json": "93d5cbc1ad4c42313d28d84721837b64f68af01df84f4d821f0c102025d5b927",
         "settings_migrator.js": "6bbb39ee04fce048a3373852208e8216d3bd5d464ee40e9822d2e6ca176e76b7"
     },
@@ -13,9 +13,9 @@
         "C_NOTIFY_LOCATION_IN_DASH": 4,
         "C_NOTIMELINE_SKILL": 3,
         "C_PLAYER_LOCATION": 5,
-        "C_PRESS_SKILL": 5,
+        "C_PRESS_SKILL": 4,
         "C_START_COMBO_INSTANT_SKILL": 6,
-        "C_START_INSTANCE_SKILL": 8,
+        "C_START_INSTANCE_SKILL": 7,
         "C_START_INSTANCE_SKILL_EX": 5,
         "C_START_SKILL": 7,
         "C_START_TARGETED_SKILL": 7,
@@ -28,7 +28,7 @@
         "S_DESPAWN_NPC": 3,
         "S_DUNGEON_EVENT_MESSAGE": 2,
         "S_NPC_LOCATION": 3,
-        "S_PLAYER_STAT_UPDATE": 17,
+        "S_PLAYER_STAT_UPDATE": 14,
         "S_QUEST_BALLOON": 1,
         "S_SPAWN_ME": 3,
         "S_START_COOLTIME_SKILL": 3

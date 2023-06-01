@@ -1,7 +1,13 @@
 # auto-stun
 Automatic casting of stun skills on stun mechanics in dungeons when playing as a **Lancer**, **Brawler** and **Warrior**.
 
-Currently, only the **Killing Grounds** and **Crimson Killing Grounds** is supported.
+## Supported Dungeons
+id | Name
+--- | ---
+3106 | Killing Grounds
+3206 | Crimson Killing Grounds
+3042 | Gardan's Trial
+9056 | Timescape (hard)
 
 ## Commands
 Toolbox(/8) | Command description

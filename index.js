@@ -47,6 +47,10 @@ module.exports = function autoStun(mod) {
 			zonesConfig = reloadModule("./config/zones.js");
 			classesConfig = reloadModule("./config/classes.js");
 			mod.command.message("Configuration reloaded");
+		},
+		"config": () => {
+			console.log("Zones config:", zonesConfig[zoneId]);
+			console.log("Classes config:", classesConfig[playerJob]);
 		}
 	});
 
@@ -88,7 +92,7 @@ module.exports = function autoStun(mod) {
 		playerJob = (mod.game.me.templateId - 10101) % 100;
 	});
 
-	mod.hook("S_PLAYER_STAT_UPDATE", 17, { "order": Infinity }, event => {
+	mod.hook("S_PLAYER_STAT_UPDATE", 14, { "order": Infinity }, event => {
 		if (!loaded) return;
 
 		playerAvgSpeed = Math.max((event.attackSpeed + event.attackSpeedBonus) / (playerJob >= 8 ? 100 : event.attackSpeed), 0);
@@ -106,7 +110,7 @@ module.exports = function autoStun(mod) {
 	mod.hook("C_START_SKILL", 7, { "order": -Infinity }, cStartSkill);
 	mod.hook("C_START_TARGETED_SKILL", 7, { "order": -Infinity }, cStartSkill);
 	mod.hook("C_START_COMBO_INSTANT_SKILL", 6, { "order": -Infinity }, cStartSkill);
-	mod.hook("C_START_INSTANCE_SKILL", 8, { "order": -Infinity }, cStartSkill);
+	mod.hook("C_START_INSTANCE_SKILL", 7, { "order": -Infinity }, cStartSkill);
 	mod.hook("C_START_INSTANCE_SKILL_EX", 5, { "order": -Infinity }, cStartSkill);
 
 	mod.hook("C_NOTIMELINE_SKILL", 3, { "order": -Infinity }, () => {
@@ -229,14 +233,14 @@ module.exports = function autoStun(mod) {
 		if (event.source === bossGameId) {
 			if (!zonesConfig[zoneId].bosses[bossTemplateId] || !zonesConfig[zoneId].bosses[bossTemplateId].questBalloons) return;
 
-			const messageId = Number(/@(monsterBehavior|dungeon):(\d+)/g.exec(event.message));
+			const messageId = Number(/@(monsterBehavior|dungeon):(\d+)/g.exec(event.message)[2]);
 			const action = zonesConfig[zoneId].bosses[bossTemplateId].questBalloons[messageId];
 
 			if (action) {
 				mod.setTimeout(startSkillChain, action.delay || 0, action.profile);
 			}
 
-			sendDebugMessage(`Quest Balloon: ${messageId}`);
+			sendDebugMessage(`Quest Balloon: ${messageId}|${event.message}`);
 		}
 	});
 
@@ -251,7 +255,7 @@ module.exports = function autoStun(mod) {
 				mod.setTimeout(startSkillChain, action.delay || 0, action.profile);
 			}
 
-			sendDebugMessage(`Dungeon Event: ${messageId}`);
+			sendDebugMessage(`Dungeon Event: ${messageId}|${event.message}`);
 		}
 	});
 
@@ -383,7 +387,7 @@ module.exports = function autoStun(mod) {
 
 				switch (type) {
 					case "instance":
-						mod.send("C_START_INSTANCE_SKILL", 8, {
+						mod.send("C_START_INSTANCE_SKILL", 7, {
 							"skill": skill,
 							"loc": playerLocation,
 							"w": playerDirection,
@@ -441,7 +445,7 @@ module.exports = function autoStun(mod) {
 				sendSkillMessage(skillId, "Release", "#00FF00");
 			}
 
-			mod.send("C_PRESS_SKILL", 5, {
+			mod.send("C_PRESS_SKILL", 4, {
 				"skill": {
 					"reserved": 0,
 					"npc": false,
@@ -522,7 +526,7 @@ module.exports = function autoStun(mod) {
 	function cancelSkills(cancelPressed = true) {
 		if (cancelPressed) {
 			pressedSkills.forEach(skillId => {
-				mod.send("C_PRESS_SKILL", 5, {
+				mod.send("C_PRESS_SKILL", 4, {
 					"skill": {
 						"reserved": 0,
 						"npc": false,
